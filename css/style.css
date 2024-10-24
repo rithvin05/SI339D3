@@ -1,0 +1,112 @@
+.content {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Center the header text */ 
+
+.mainHeader{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    z-index: 1000;
+
+
+    background-color: #143763;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 30px;
+    
+}
+
+
+
+
+#meetList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+h2{
+    text-align: center;
+    color: white;
+    background-color: #143763;
+}
+
+
+ #meet-table, #photo-table #women-table, #men-table, #athlete-table{ 
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border-bottom: 2px solid #afdceb;
+} 
+
+#MeetScroll, #meetList, #binaryRoster, #photos, #athlete-results{
+    width: 100%;
+    max-height:75vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    justify-content: space-evenly;
+
+}
+table {
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+    
+}
+
+th {
+    background-color: #2565b3;
+    color: #fff;
+    border-radius: 15px 15px 0 0;
+    font-weight: bold;
+    
+}
+
+tr:nth-child(even) {
+    background-color: #2565b339;
+}
+
+a, td{
+    color: #2565b3;
+    text-decoration: none;
+    font-weight: bold;  
+}
+
+a:hover{
+    color: #00274c;
+    text-decoration: underline;
+}
+
+
+binaryRoster:focus {
+    outline: 2px solid #2565b3; /* Adds a visible outline on focus */
+    background-color: #f0f8ff; /* Optional background color change */
+}
+
+
+
+
+/* styling the meet pages */
+
+#homeButton {
+    margin-left: auto; /* This will push the button to the far right */
+    /* Additional styling if needed */
+    border-radius: 15px;
+    padding: 10px;
+    background-color: white;
+}

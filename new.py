@@ -5,63 +5,76 @@ html_main = '''<!DOCTYPE html>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ann Arbor Skyline Meets</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <header>
-        <h1>Ann Arbor Skyline</h1>
+    <header class="mainHeader" id="Head">
+        <h1 id="h1id">Ann Arbor Skyline</h1>
     </header>
-    <section id="meetList">
-        <h2>Meets</h2>
-        <table id="meet-table">
-        <thead>
-            <tr>
-                <th>Meet Name</th>
-            </tr>
-        </thead>
-            <tbody>
-                {meet_rows}
-            </tbody>
-        </table>
+    <section class="sectionTitle" id="meetList">
+        <h2 id="meetHeader2">Meets</h2>
+        <section id="MeetScroll">
+            <table id="meet-table" class="table">
+            <thead>
+                <tr>
+                    <th id="meetTableHead">Meet Name</th>
+                </tr>
+            </thead>
+                <tbody>
+                    {meet_rows}
+                </tbody>
+            </table>
+        </section>
     </section>
     
     <section id="Roster">
-        <h2>Roster</h2>
-        <h3>Women's Team</h3>
-        <table id="women-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {womens_rows}
-            </tbody>
-        </table>
+        <h2 id="rosterHeader">Roster</h2>
+        <section id="binaryRoster" tabindex="0">
+            <section id="women">
+                <h3>Women's Team</h3>
+                <table id="women-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {womens_rows}
+                    </tbody>
+                </table>
+            </section>
 
-        <h3>Men's Team</h3>
-        <table id="men-table">
-            <thead>
-                <tr>
-                    <th>Name</th>
-                </tr>
-            </thead>
-            <tbody>
-                {mens_rows}
-            </tbody>
-        </table>
+            <section id="men">
+                <h3>Men's Team</h3>
+                <table id="men-table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {mens_rows}
+                    </tbody>
+                </table>
+            </section>
+
+        </section>
     </section>
+
     <section id="Meet-Photos">
-        <h2>Photos</h2>
-            <table id="photo-table">  
-                <thead>
-                    <tr>
-                        <th>Meet Name</th>
-                    </tr>
-                </thead>               
-                <tbody>
-                    {photo_rows}
-                </tbody>
-            </table>
+        <h2 id="PhotoHeader">Photos</h2>
+            <section id="photos">
+                <table id="photo-table">  
+                    <thead>
+                        <tr>
+                            <th>Meet Name</th>
+                        </tr>
+                    </thead>               
+                    <tbody id="tablephotos">
+                        {photo_rows}
+                    </tbody>
+                </table>
+            </section>
     </section>
 
     
@@ -74,20 +87,22 @@ html_template = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/style.css">
     <title>{meet_name} Country Meet</title>
 </head>
 <body>
-    <header>
-        <h1>{meet_name}</h1>
-        <h2>{meet_date}</h2>
-        <p>{meet_desc}</p>
+    <header class="mainHeader">
+            <h1>{meet_name}</h1>
+            <button id="homeButton">
+                <a href="index.html">Back to Home</a>
+            </button>
     </header>
     <!-- Section for overall team results -->
     <section id="team-results">
-        <h2>Overall Team Results</h2>
-        <p><a href="{team_results_link}">Team results are available here.</a></p>
+        <h2 id="meetDate">{meet_date}</h2>
+        <p id="meetDesc">{meet_desc}</p>
+        <h2 id="resultsTitle">Overall Team Results</h2>
+        <p id="resultsLink"><a href="{team_results_link}">Team results are available here.</a></p>
     </section>
     <!-- Section for athlete table -->
     <section id="athlete-results">
@@ -233,7 +248,7 @@ for filename in os.listdir('athletes/mens_team'):
         data = list(reader)
         mens_rows += f'''
                 <tr>
-                    <td>{data[5][0]}</td>
+                    <td tabindex="0">{data[5][0]}</td>
                 </tr>
             '''
 for filename in os.listdir('athletes/womens_team'):
@@ -244,7 +259,7 @@ for filename in os.listdir('athletes/womens_team'):
         data = list(reader)
         womens_rows += f'''
                 <tr>
-                    <td>{data[5][0]}</td>
+                    <td tabindex="0">{data[5][0]}</td>
                 </tr>
             '''
 
