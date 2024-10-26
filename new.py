@@ -1,154 +1,163 @@
 # HTML template
 html_main = '''<!DOCTYPE html>
 <html lang="en">
-<head>  
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ann Arbor Skyline Meets</title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body class="bodyClass">
-    <header class="mainHeader" id="Head">
-        <h1 id="h1id">Ann Arbor Skyline</h1>
-    </header>
-    <section class="sectionTitle" id="meetList">
-        <h2 id="meetHeader2">Meets</h2>
-        <section id="MeetScroll">
-            <table id="meet-table" class="table">
-            <thead>
-                <tr>
-                    <th id="meetTableHead">Meet Name</th>
-                </tr>
-            </thead>
-                <tbody>
-                    {meet_rows}
-                </tbody>
-            </table>
-        </section>
-    </section>
-    
-    <section id="Roster">
-        <h2 id="rosterHeader">Roster</h2>
-        <section id="binaryRoster" tabindex="0">
-            <section id="women">
-                <h3>Women's Team</h3>
-                <table id="women-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                        </tr>
-                    </thead>
+<main>
+    <head>  
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ann Arbor Skyline Meets</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body class="bodyClass">
+        <header class="mainHeader" id="Head">
+            <h1 tabindex="0" id="h1id">Ann Arbor Skyline</h1>
+        </header>
+        <div class="sectionTitle" id="meetList">
+            <h2 tabindex="0" id="meetHeader2">Meets</h2>
+            <div id="MeetScroll">
+                <table id="meet-table" class="table">
+                <thead>
+                    <tr>
+                        <th tabindex="0" id="meetTableHead">Meet Name</th>
+                    </tr>
+                </thead>
                     <tbody>
-                        {womens_rows}
+                        {meet_rows}
                     </tbody>
                 </table>
-            </section>
+            </div>
+        </div>
+        
+        <div tabindex="0" id="Roster">
+            <h2 id="rosterHeader">Roster</h2>
+            <div id="binaryRoster" tabindex="0">
+                <section id="women">
+                    <h3 tabindex="0">Women's Team</h3>
+                    <table id="women-table">
+                        <thead>
+                            <tr>
+                                <th tabindex="0">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {womens_rows}
+                        </tbody>
+                    </table>
+                </section>
 
-            <section id="men">
-                <h3>Men's Team</h3>
-                <table id="men-table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {mens_rows}
-                    </tbody>
-                </table>
-            </section>
+                <section id="men">
+                    <h3 tabindex="0">Men's Team</h3>
+                    <table id="men-table">
+                        <thead>
+                            <tr>
+                                <th tabindex="0">Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {mens_rows}
+                        </tbody>
+                    </table>
+                </section>
 
-        </section>
-    </section>
+            </div>
+        </div>
 
-    <section id="Meet-Photos">
-        <h2 id="PhotoHeader">Photos</h2>
-            <section id="photos">
-                <table id="photo-table">  
-                    <thead>
-                        <tr>
-                            <th>Meet Name</th>
-                        </tr>
-                    </thead>               
-                    <tbody id="tablephotos">
-                        {photo_rows}
-                    </tbody>
-                </table>
-            </section>
-    </section>
+        <div id="Meet-Photos">
+            <h2 tabindex="0" id="PhotoHeader">Photos</h2>
+                <div id="photos">
+                    <table id="photo-table">  
+                        <thead>
+                            <tr>
+                                <th tabindex="0">Meet Name</th>
+                            </tr>
+                        </thead>               
+                        <tbody id="tablephotos">
+                            {photo_rows}
+                        </tbody>
+                    </table>
+                </div>
+        </div>
 
-    
-</body>
+        
+    </body>
+</main>
 </html>    
 '''
 
 html_template = '''<!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
-    <title>{meet_name} Country Meet</title>
-</head>
-<body class="bodyClass">
-    <header class="mainHeader">
-            <h1 tabindex="0">{meet_name}</h1>
-            <a id="homeButton" href="index.html">Back to Home</a>
-    </header>
-    <!-- Section for overall team results -->
-    <section id="team-results">
-        <h2 tabindex="0" id="meetDate">{meet_date}</h2>
-        <p tabindex="0" id="meetDesc">{meet_desc}</p>
-        <h2 tabindex="0" id="resultsTitle">Overall Team Results</h2>
-        <p id="resultsLink"><a href="{team_results_link}">Team results are available here.</a></p>
-    </section>
-    <!-- Section for athlete table -->
-    <section id="athlete-results">
-        <h2>Athlete Results</h2>
-        <table id="athlete-table">
-            <thead>
-                <tr>
-                    <th>Place</th>
-                    <th>Profile Picture</th>
-                    <th>Name</th>
-                    <th>See More</th>
-            </tr>
-            </thead>
-            <tbody>
-                {athlete_rows}
-            </tbody>
-        </table>
-    </section>
+<main>
 
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style.css">
+        <title>{meet_name} Country Meet</title>
+    </head>
+    <body class="bodyClass">
+        <header class="mainHeader">
+                <h1 tabindex="0">{meet_name}</h1>
+                <nav>
+                    <a id="homeButton" href="index.html">Back to Home</a>
+                </nav>
+        </header>
+        <!-- Section for overall team results -->
+        <section id="team-results">
+            <h2 tabindex="0" id="meetDate">{meet_date}</h2>
+            <p tabindex="0" id="meetDesc">{meet_desc}</p>
+            <h2 tabindex="0" id="resultsTitle">Overall Team Results</h2>
+            <p id="resultsLink"><a href="{team_results_link}">Team results are available here.</a></p>
+        </section>
+        <!-- Section for athlete table -->
+        <section id="athlete-results">
+            <h2>Athlete Results</h2>
+            <table id="athlete-table">
+                <thead>
+                    <tr>
+                        <th>Place</th>
+                        <th>Profile Picture</th>
+                        <th>Name</th>
+                        <th>See More</th>
+                </tr>
+                </thead>
+                <tbody>
+                    {athlete_rows}
+                </tbody>
+            </table>
+        </section>
+
+    </body>
+</main>
 </html>
-'''
+    '''
 
 
 html_images = '''<!DOCTYPE html>
     <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Meet Photos</title>
-        <link rel="stylesheet" href="css/style.css">
-       
-    </head>
-    <body class="bodyClass">
-        <header class="mainHeader">
-            <h1>{meet_title}</h1>
-            <a id="homeButton" href="index.html">Back to Home</a>
+    <main>
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Meet Photos</title>
+            <link rel="stylesheet" href="css/style.css">
+        
+        </head>
+        <body class="bodyClass">
+            <header class="mainHeader">
+                <h1>{meet_title}</h1>
+                <a id="homeButton" href="index.html">Back to Home</a>
 
-        </header>   
-        <section id="photo-table">
-                <h2>All Photos</h2>
-                {photo_list}
-        </section>
-    </body>
-
-    </html>
-
-            
+            </header>   
+            <section id="photo-table">
+                    <h2>All Photos</h2>
+                    <div class="photo-grid">
+                        {photo_list}
+                    </div>
+            </section>
+        </body>
+    </main>
+</html>
+         
 '''
 
 import csv
