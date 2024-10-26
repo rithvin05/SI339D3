@@ -144,12 +144,11 @@ html_images = '''<!DOCTYPE html>
         </head>
         <body class="bodyClass">
             <header class="mainHeader">
-                <h1>{meet_title}</h1>
+                <h1 tabindex="0" >{meet_title}</h1>
                 <a id="homeButton" href="index.html">Back to Home</a>
-
             </header>   
             <section id="photo-table">
-                    <h2>All Photos</h2>
+                    <h2 tabindex="0" >All Photos</h2>
                     <div class="photo-grid">
                         {photo_list}
                     </div>
@@ -307,7 +306,7 @@ for folder in os.listdir('images'):
             # if video
             
             if file_ext in photo_extensions:
-                photolist += f'<img class="photoList" src="{file_path}" alt="">\n'
+                photolist += f'<img tabindex="0" class="photoList" src="{file_path}" alt="">\n'
         make_photo_page(output_name, photolist, folder)
 
 html_main_content = html_main.format(
