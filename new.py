@@ -7,7 +7,7 @@ html_main = '''<!DOCTYPE html>
     <title>Ann Arbor Skyline Meets</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body class="bodyClass">
     <header class="mainHeader" id="Head">
         <h1 id="h1id">Ann Arbor Skyline</h1>
     </header>
@@ -90,18 +90,16 @@ html_template = '''<!DOCTYPE html>
     <link rel="stylesheet" href="css/style.css">
     <title>{meet_name} Country Meet</title>
 </head>
-<body>
+<body class="bodyClass">
     <header class="mainHeader">
-            <h1>{meet_name}</h1>
-            <button id="homeButton">
-                <a href="index.html">Back to Home</a>
-            </button>
+            <h1 tabindex="0">{meet_name}</h1>
+            <a id="homeButton" href="index.html">Back to Home</a>
     </header>
     <!-- Section for overall team results -->
     <section id="team-results">
-        <h2 id="meetDate">{meet_date}</h2>
-        <p id="meetDesc">{meet_desc}</p>
-        <h2 id="resultsTitle">Overall Team Results</h2>
+        <h2 tabindex="0" id="meetDate">{meet_date}</h2>
+        <p tabindex="0" id="meetDesc">{meet_desc}</p>
+        <h2 tabindex="0" id="resultsTitle">Overall Team Results</h2>
         <p id="resultsLink"><a href="{team_results_link}">Team results are available here.</a></p>
     </section>
     <!-- Section for athlete table -->
@@ -113,10 +111,8 @@ html_template = '''<!DOCTYPE html>
                     <th>Place</th>
                     <th>Profile Picture</th>
                     <th>Name</th>
-                    <th>Time</th>
-                    <th>Grade</th>
-                    <th>Team</th>            
-                </tr>
+                    <th>See More</th>
+            </tr>
             </thead>
             <tbody>
                 {athlete_rows}
@@ -133,12 +129,16 @@ html_images = '''<!DOCTYPE html>
     <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Meet Photos</title>
+        <link rel="stylesheet" href="css/style.css">
        
     </head>
-    <body>
-        <header>
+    <body class="bodyClass">
+        <header class="mainHeader">
             <h1>{meet_title}</h1>
+            <a id="homeButton" href="index.html">Back to Home</a>
+
         </header>   
         <section id="photo-table">
                 <h2>All Photos</h2>
@@ -199,9 +199,15 @@ def generate_html_from_csv(csv_file, output_file):
                     <td>{athlete_place}</td>
                     <td><img src="AthleteImages/{athlete_image}" alt="{athlete_name}" style="width: 60px; height: auto;"></td>  
                     <td><a href="{athlete_link}">{athlete_name}</a></td>
-                    <td>{athlete_time}</td>
-                    <td>{athlete_grade}</td>
-                    <td>{athlete_team}</td>
+                    <td>
+                        <details>
+                            <summary>See More</summary>
+                            <br>
+                            <div class="collapsible-col">Time: {athlete_time}</div><br>
+                            <div class="collapsible-col">Grade: {athlete_grade}</div><br>
+                            <div class="collapsible-col">Team: {athlete_team}</div>
+                        </details>
+                    </td>
                     
                 </tr>
             '''
@@ -290,15 +296,9 @@ for folder in os.listdir('images'):
             file_ext = os.path.splitext(photo)[1].lower()
             file_name = os.path.splitext(photo)[0].lower()
             # if video
-            if file_ext in video_extensions:
-                photolist += f'''
-                <video controls>
-                    <source src="{file_path}" type="video/{file_ext[1:]}">
-                    Your browser does not support the video tag.
-                </video>\n'''
-            # image
-            elif file_ext in photo_extensions:
-                photolist += f'<img src="{file_path}" alt="{file_name} from {folder}" style="width: 60px; height: auto;">\n'
+            
+            if file_ext in photo_extensions:
+                photolist += f'<img class="photoList" src="{file_path}" alt="">\n'
         make_photo_page(output_name, photolist, folder)
 
 html_main_content = html_main.format(

@@ -4,8 +4,6 @@
     flex-direction: column;
 }
 
-/* Center the header text */ 
-
 .mainHeader{
     position: sticky;
     top: 0;
@@ -42,11 +40,11 @@ h2{
  #meet-table, #photo-table #women-table, #men-table, #athlete-table{ 
     width: 100%;
     padding: 10px;
-    box-sizing: border-box;
-    border-bottom: 2px solid #afdceb;
+    /* box-sizing: border-box; */
+    /* border-bottom: 2px solid #afdceb; */
 } 
 
-#MeetScroll, #meetList, #binaryRoster, #photos, #athlete-results{
+#MeetScroll, #binaryRoster, #photos, #athlete-results{
     width: 100%;
     max-height:75vh;
     display: flex;
@@ -81,21 +79,26 @@ tr:nth-child(even) {
     background-color: #2565b339;
 }
 
-a, td{
+a, td {
     color: #2565b3;
     text-decoration: none;
-    font-weight: bold;  
+    font-weight: bold;
+    transition: font-size 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-a:hover{
+a:hover, a:focus{
     color: #00274c;
-    text-decoration: underline;
+    font-size: 1.2em; /* Increase font size to simulate scaling */
+    border: 2px solid #00274c;
 }
+
+
+/* The element to apply the animation to */
 
 
 binaryRoster:focus {
-    outline: 2px solid #2565b3; /* Adds a visible outline on focus */
-    background-color: #f0f8ff; /* Optional background color change */
+    outline: 2px solid #2565b3; /* Adds a visible outline on*/
+    background-color: #676c71; /* Optional background color change */
 }
 
 
@@ -105,8 +108,103 @@ binaryRoster:focus {
 
 #homeButton {
     margin-left: auto; /* This will push the button to the far right */
-    /* Additional styling if needed */
     border-radius: 15px;
     padding: 10px;
     background-color: white;
+    color: black; /* Default text color */
+    cursor: pointer;
+   
+
+    transition:
+        background-color 0.5s ease-in-out,
+        color 0.3s ease-in-out,
+        width 0.5s ease-in-out,
+        height 0.5s ease-in-out;
 }
+
+#homeButton:hover {
+    background-color: #132f82;
+    color: white;
+    width: 200px;
+    height: 200px;
+
+    
+    
+}
+
+#athlete-results{ 
+      width: 100%;
+      border-collapse: collapse;
+}
+
+.photoList{
+        width: 60px;
+        height: 80px;
+    }
+
+#meetList{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: none;
+}
+
+/* Hide collapsed columns */
+@media (prefers-reduced-motion: reduce) {
+    #homeButton,
+    a,
+    td {
+        transition: none;
+    }
+
+    #homeButton:hover,
+    a:hover,
+    a:focus,
+    td:hover,
+    td:focus {
+        transition: none;
+        font-size: inherit; /* Reset font size to default */
+        border: none;
+    }
+}
+
+
+/* Center the header text */ 
+@media (prefers-color-scheme: dark) {
+    .bodyClass{
+        background-color: black;
+    }
+    .mainHeader, h2, th{
+        background-color: #225a9e;
+    }
+    p, h3{ color: white;}
+
+    table{
+        background-color: #000000;
+    }
+    td{
+        color: black;
+    }
+    #meet-table, #photo-table #women-table, #men-table, #athlete-table{ 
+       background-color: black;
+    }
+    a,td{
+        color: white;
+    }
+    #homeButton{
+        background-color: black;
+        color: white;
+    }
+
+    a:hover{
+        border: 2px solid white;
+        color: white;
+    }
+
+    a:hover, a:focus{
+        color: white;
+        font-size: 1.2em;
+        border: 2px solid white;
+    }
+
+}
+
