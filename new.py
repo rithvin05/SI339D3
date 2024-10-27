@@ -302,7 +302,7 @@ for folder in os.listdir('images'):
             # if video
             
             if file_ext in photo_extensions:
-                photolist += f'<img tabindex="0" class="photoList" src="{file_path}" alt="">\n'
+                photolist += f'<img class="photoList" src="{file_path}" alt="">\n'
         make_photo_page(output_name, photolist, folder)
 
 html_main_content = html_main.format(
